@@ -1,8 +1,6 @@
 package promiseUtil
 
 import (
-	"fmt"
-
 	"github.com/chebyrash/promise"
 	. "github.com/visionmedia/go-debug"
 )
@@ -50,7 +48,6 @@ func Map(
 				go func(item interface{}, index int) {
 					// new Task
 					debug("starting %d", index)
-					fmt.Println(index)
 
 					var err error
 					p := fn(item, index, items)

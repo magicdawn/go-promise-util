@@ -1,8 +1,11 @@
 language: go
 go:
   - '1.14'
-GO111MODULE: true
-script: 'go test -race'
+env:
+  - GO111MODULE=on
+
+script: 'npm run test'
 after_script: ''
+
 notifications:
   email: false

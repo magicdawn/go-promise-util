@@ -4,7 +4,7 @@
   "description": "promise util for go",
   "private": false,
   "scripts": {
-    "test": "go test -race",
+    "test": "go test -v -race",
     "gen-readme": "swig render ./readme/readme.md > README.md && prettier --write README.md"
   },
   "devDependencies": {

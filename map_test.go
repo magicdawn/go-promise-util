@@ -15,7 +15,7 @@ func handle(item interface{}, index int, items []interface{}) *promise.Promise {
 	})
 }
 
-func Test(t *testing.T) {
+func TestMap(t *testing.T) {
 	arr := []interface{}{1, 2, 3, 4, 5}
 	p := Map(arr, handle, 2)
 	res, err := p.Await()

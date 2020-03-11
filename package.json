@@ -5,6 +5,7 @@
   "private": false,
   "scripts": {
     "test": "go test -v -race",
+    "test-cover": "go test -race -coverprofile=coverage.txt -covermode=atomic",
     "gen-readme": "swig render ./readme/readme.md > README.md && prettier --write README.md"
   },
   "devDependencies": {

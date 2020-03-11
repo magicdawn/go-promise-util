@@ -4,8 +4,10 @@ go:
 env:
   - GO111MODULE=on
 
-script: 'npm run test'
-after_script: ''
+script:
+  - npm run test
+after_script:
+  - bash <(curl -s https://codecov.io/bash)
 
 notifications:
   email: false

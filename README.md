@@ -16,6 +16,16 @@ $ go get gopkg.in/magicdawn/go-promise-util
 
 ## API
 
+### package name = putil
+
+use
+
+```go
+putil.Map()
+putil.Async()
+putil.AsyncFactory()
+```
+
 ### Map
 
 ```go

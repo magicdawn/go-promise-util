@@ -1,5 +1,15 @@
 ## API
 
+### package name = putil
+
+use
+
+```go
+putil.Map()
+putil.Async()
+putil.AsyncFactory()
+```
+
 ### Map
 
 ```go

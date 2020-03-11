@@ -1,4 +1,4 @@
-package promiseUtil
+package putil
 
 import (
 	"sync"
@@ -9,7 +9,7 @@ import (
 
 var debug = Debug("promiseUtil")
 
-// Map : coutil.Map with concurrency
+// Map: Map items to Promise with concurrency
 func Map(
 	items []interface{},
 	fn func(interface{}, int, []interface{}) *promise.Promise,

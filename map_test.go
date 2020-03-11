@@ -1,4 +1,4 @@
-package promiseUtil
+package putil
 
 import (
 	"testing"

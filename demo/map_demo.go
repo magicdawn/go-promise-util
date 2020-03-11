@@ -5,7 +5,7 @@ import (
 	"time"
 
 	"github.com/chebyrash/promise"
-	promiseUtil "github.com/magicdawn/go-promise-util"
+	putil "github.com/magicdawn/go-promise-util"
 )
 
 func main() {
@@ -17,13 +17,13 @@ func main() {
 	}
 
 	sleepUseAsync := func(sec int) *promise.Promise {
-		return promiseUtil.Async(func() interface{} {
+		return putil.Async(func() interface{} {
 			time.Sleep(time.Second * time.Duration(sec))
 			return sec
 		})
 	}
 
-	sleepUseAsyncFactory := promiseUtil.AsyncFactory(func(args ...interface{}) interface{} {
+	sleepUseAsyncFactory := putil.AsyncFactory(func(args ...interface{}) interface{} {
 		sec := args[0].(int)
 		time.Sleep(time.Second * time.Duration(sec))
 		return sec
@@ -31,16 +31,16 @@ func main() {
 
 	arr := []interface{}{1, 2, 3, 4, 5}
 
-	p1 := promiseUtil.Map(arr, func(item interface{}, index int, items []interface{}) *promise.Promise {
+	p1 := putil.Map(arr, func(item interface{}, index int, items []interface{}) *promise.Promise {
 		return sleepUseNewPromise(item.(int))
 	}, 2)
-	p2 := promiseUtil.Map(arr, func(item interface{}, index int, items []interface{}) *promise.Promise {
+	p2 := putil.Map(arr, func(item interface{}, index int, items []interface{}) *promise.Promise {
 		return sleepUseAsync(item.(int))
 	}, 2)
-	p3 := promiseUtil.Map(arr, func(item interface{}, index int, items []interface{}) *promise.Promise {
+	p3 := putil.Map(arr, func(item interface{}, index int, items []interface{}) *promise.Promise {
 		return sleepUseAsyncFactory(item.(int))
 	}, 2)
-	
+
 	result, err := promise.All(p1, p2, p3).Await()
 	fmt.Println(result, err)
 }

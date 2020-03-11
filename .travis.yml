@@ -5,7 +5,7 @@ env:
   - GO111MODULE=on
 
 script:
-  - npm run test
+  - npm run test-cover
 after_script:
   - bash <(curl -s https://codecov.io/bash)
 

@@ -11,7 +11,7 @@
 ## Install
 
 ```sh
-$ go get gopkg.in/magicdawn/go-promise-util
+$ go get github.com/magicdawn/go-promise-util
 ```
 
 ## API

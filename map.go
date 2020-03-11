@@ -1,6 +1,8 @@
 package promiseUtil
 
 import (
+	"sync"
+
 	"github.com/chebyrash/promise"
 	. "github.com/visionmedia/go-debug"
 )
@@ -27,10 +29,14 @@ func Map(
 		chComplete := make(chan int, 1)
 		chError := make(chan error, total)
 		returned := false
+		var mu sync.Mutex
 
 		// oncomplete callback
 		var oncomplete func()
 		oncomplete = func() {
+			mu.Lock()
+			defer mu.Unlock()
+
 			if returned {
 				return
 			}
@@ -58,8 +64,11 @@ func Map(
 					}
 
 					// notify
+					mu.Lock()
 					running--
 					completed++
+					mu.Unlock()
+
 					oncomplete()
 				}(items[started], started)
 
@@ -68,7 +77,7 @@ func Map(
 			}
 		}
 
-		oncomplete()
+		go oncomplete()
 
 		select {
 		case <-chComplete:

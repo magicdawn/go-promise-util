@@ -1,0 +1,13 @@
+{
+  "name": "go-promise-util",
+  "version": "0.0.1",
+  "description": "promise util for go",
+  "private": false,
+  "scripts": {
+    "test": "go test -race",
+    "gen-readme": "swig render ./readme/readme.md > README.md && prettier --write README.md"
+  },
+  "devDependencies": {
+    "@magicdawn/prettier-config": "^0.0.1"
+  }
+}

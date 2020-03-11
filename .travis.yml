@@ -1,0 +1,8 @@
+language: go
+go:
+  - '1.14'
+GO111MODULE: true
+script: 'go test -race'
+after_script: ''
+notifications:
+  email: false
